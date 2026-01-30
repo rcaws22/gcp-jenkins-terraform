@@ -83,7 +83,7 @@ pipeline {
             }
             steps {
                 timeout (time: 300, unit: 'SECONDS') {
-                    input message: 'Are you sure to destroy Infra ?', ok:'yes', submitter: 'i27academy,sreuser'
+                    input message: 'Are you sure to destroy Infra ?', ok:'yes', submitter: 'rcaws22,rcaws22'
                 }
                 sh """
                     terraform destroy -var-file=${TFVARS_FILE} --auto-approve 
