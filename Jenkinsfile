@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'terraform-slave'
+        label 'slave'
     }
     parameters {
         choice(
