@@ -24,7 +24,7 @@ pipeline {
             steps {
                     withCredentials([file(credentialsId: 'jenkins-gcr', variable: 'GCP_KEY')]) {
                         sh '''
-                            cp $SA_KEY $GOOGLE_APPLICATION_CREDENTIALS
+                            cp $GCP_KEY $GOOGLE_APPLICATION_CREDENTIALS
                         '''
                     }
                 }
