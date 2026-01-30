@@ -15,14 +15,14 @@ pipeline {
         )
     }
     environment {
-        GCS_BUCKET = "ancient-tractor-462500-u5-tf"
-        GOOGLE_APPLICATION_CREDENTIALS = "${WORKSPACE}/sa-key.json"
+        GCS_BUCKET = "btdev-483617-bucket"
+        GOOGLE_APPLICATION_CREDENTIALS = "${WORKSPACE}/jenkins-gcr.json"
         TFVARS_FILE = "${params.ENVIRONMENT}.tfvars"
     }
     stages {
         stage ('Setup GCE Auth') {
             steps {
-                    withCredentials([file(credentialsId: 'gcp-service-account-key', variable: 'SA_KEY')]) {
+                    withCredentials([file(credentialsId: 'jenkins-gcr', variable: 'GCP_KEY')]) {
                         sh '''
                             cp $SA_KEY $GOOGLE_APPLICATION_CREDENTIALS
                         '''
